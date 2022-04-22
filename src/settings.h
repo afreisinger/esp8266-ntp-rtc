@@ -1,4 +1,5 @@
-/**The MIT License (MIT)
+/*
+The MIT License (MIT)
  
  Copyright (c) 2018 by Adrian Freisinger Ltd., https://afreisinger.gitlab.io
  
@@ -27,7 +28,6 @@
 // Setup
 String WIFI_SSID = "Fibertel WiFi779 2.4GHz";
 String WIFI_PASS = "1149820055";
-
 
 #define WIFI_HOSTNAME "NeoClock"
 

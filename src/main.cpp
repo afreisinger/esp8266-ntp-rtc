@@ -37,8 +37,9 @@
 #include <RTClib.h>
 #include <SPI.h>
 
-#include "settings.h"
+//#include "settings.h"
 #include "rtc.h"
+#include "wifi.h"
 //#include "print.h"
 //#include "time.h"
 //#include "output_subrutines.h"
@@ -97,6 +98,7 @@ String TIME_ZONE = TIME_ZONE_NODST;
 
 
 
+
 time_t EvaluateDaylightsavingTime(time_t result) {
 	if (
 		(
@@ -144,7 +146,7 @@ time_t rtc_now = 0;
 time_t rtc_epoch = 0;
 time_t time_last_lcd = 0;
 time_t time_last_reportDS = 0;
-
+/*
 //connectWifi////////////////////////////////////////////////////////////////////////////////////////////////
 void connectWifi() {
   bool isConnected = false;
@@ -168,6 +170,7 @@ void connectWifi() {
   isConnected = true;
 }
 //connectWifi////////////////////////////////////////////////////////////////////////////////////////////////
+*/
 
 //#define BUFFERSIZE 80
 //static char buffer[BUFFERSIZE + 1];
@@ -484,7 +487,8 @@ String ComposeTimeStamp(unsigned int details, time_t datum) {
 /////////////////////////////////////////////////////////////////////////////////////
 bool checkdhcp() 
 {
-	if (WiFi.begin() == 0) 
+	if (beginWiFi())
+	//if (WiFi.begin() == 0) 
 	{
 		Serial.println((DHCP_FAIL_MESSAGE));
 		return false;
@@ -793,7 +797,11 @@ void setup() {
   Serial.begin(BAUDRATE, SERIAL_8N1);
   Wire.begin();
   pinMode(LED_BUILTIN, OUTPUT);
-  connectWifi();
+  
+  connectWiFi();
+  
+  
+
   
   time_t rtc_uninitialized_time = 0;
 	
