@@ -23,14 +23,24 @@ The MIT License (MIT)
  */
 
 
-#include <Arduino.h>
+//#include <Arduino.h>
 
 // Setup
-String WIFI_SSID = "Fibertel WiFi779 2.4GHz";
-String WIFI_PASS = "1149820055";
+//const char* WIFI_SSID = "Fibertel WiFi779 2.4GHz";
+//const char* WIFI_PASS = "1149820055";//#define WIFI_SSID "Fibertel WiFi779 2.4GHz"
+//const char* WIFI_HOSTNAME = "NeoClock";
+//#define WIFI_PASS "1149820055"
+//#define WIFI_HOSTNAME "NeoClock"
 
-#define WIFI_HOSTNAME "NeoClock"
+//#define WIFI_HOSTNAME "NeoClock"
+//#define WIFI_HOSTNAME "NeoClock"
 
+#ifndef STASSID
+#define STASSID "Fibertel WiFi779 2.4GHz"
+#define STAPSK "1149820055"
+#define STAHST "NeoClock"
+#endif
 
-
-
+const char* WIFI_SSID = STASSID;
+const char* WIFI_PASS = STAPSK;
+const char* WIFI_HOSTNAME = STAHST;

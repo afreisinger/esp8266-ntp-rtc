@@ -37,9 +37,10 @@
 #include <RTClib.h>
 #include <SPI.h>
 
-//#include "settings.h"
+#include "settings.h"
 #include "rtc.h"
 #include "wifi.h"
+//#include "settings.h"
 //#include "print.h"
 //#include "time.h"
 //#include "output_subrutines.h"
@@ -51,7 +52,7 @@
 /////////////////////////////////////////////////////////////////////////////////////
 #define NTP_CHECK_PERIOD 		3600//3600
 #define NTP_RETRY_CHECK_PERIOD 	60
-#define REPORTDS_TIME_PERIOD 	10 //1
+#define REPORTDS_TIME_PERIOD 	1 //1
 volatile bool ntp_interrupt_in_progress = false;
 volatile bool NTPworking = false;	
 volatile bool NTPsetstime = false;
@@ -487,8 +488,8 @@ String ComposeTimeStamp(unsigned int details, time_t datum) {
 /////////////////////////////////////////////////////////////////////////////////////
 bool checkdhcp() 
 {
-	if (beginWiFi())
-	//if (WiFi.begin() == 0) 
+	
+	if (WiFi.begin() == 0) 
 	{
 		Serial.println((DHCP_FAIL_MESSAGE));
 		return false;
@@ -798,7 +799,7 @@ void setup() {
   Wire.begin();
   pinMode(LED_BUILTIN, OUTPUT);
   
-  connectWiFi();
+  connectWiFi(WIFI_SSID,WIFI_PASS,WIFI_HOSTNAME);
   
   
 
