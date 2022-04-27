@@ -17,6 +17,7 @@ lib/readme.txt
 __vm/
 .pio/
 test/
+scripts/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

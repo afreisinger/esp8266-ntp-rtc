@@ -34,8 +34,8 @@
 //#include <Ethernet.h>
 //#include <EthernetUDP.h>
 #include <Wire.h>
-#include <RTClib.h>
-#include <SPI.h>
+//#include <RTClib.h>
+//#include <SPI.h>
 
 #include "settings.h"
 #include "rtc.h"
